@@ -1,96 +1,66 @@
-# HeavenVilla 🌿
+# 🏡 HeavenVilla
 
-> Luxury villa rental website built with Next.js 14, Tailwind CSS, and TypeScript.
+A luxury villa rental website built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**. Designed to showcase private villas nestled in Indonesian nature with a clean, elegant aesthetic.
 
-## Tech Stack
+## ✨ Features
 
-- **Framework:** Next.js 14 (App Router)
-- **Styling:** Tailwind CSS
-- **Fonts:** Playfair Display (display) + Inter (body)
-- **Icons:** Lucide React
-- **Language:** TypeScript
+- **Landing Page** — Full-bleed hero, booking widget, villa showcase, amenities, gallery, testimonials, and newsletter CTA
+- **Villa Detail Page** — Photo gallery with lightbox, amenities, highlights, policies, and sticky booking card
+- **Multi-step Booking Form** — Date picker, guest selector, personal details, price breakdown, and confirmation
+- **Villa List Page** — All villas with ratings, pricing, and quick info
+- **About Page** — Brand story, team, values, and stats
+- **Gallery Page** — Masonry grid with filter by villa and lightbox
+- **Contact Page** — Contact form with success state
+- **WhatsApp Floating Button** — Direct chat to villa host
+- **Scroll Reveal Animations** — Powered by Framer Motion
+- **Custom 404 Page**
+- **Fully Responsive** — Mobile, tablet, and desktop
 
-## Quick Start
+## 🎨 Design
+
+| Token | Value |
+|-------|-------|
+| Primary | Forest Green `#1A3329` |
+| Accent | Gold `#C9A84C` |
+| Background | Ivory `#F5EFE0` |
+| Dark | Near-black `#0D1F1A` |
+| Display Font | Playfair Display |
+| Body Font | Inter |
+
+## 🗂️ Project Structure
+
+
+
+## 🚀 Getting Started
 
 ```bash
 # Install dependencies
 npm install
 
-# Run dev server
+# Run development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
----
+## 🛠️ Tech Stack
 
-## Project Structure
+- [Next.js 14](https://nextjs.org/) — React framework
+- [TypeScript](https://www.typescriptlang.org/) — Type safety
+- [Tailwind CSS](https://tailwindcss.com/) — Styling
+- [Framer Motion](https://www.framer.com/motion/) — Animations
+- [Lucide React](https://lucide.dev/) — Icons
+- [Unsplash](https://unsplash.com/) — Placeholder images
 
-```
-heavenvilla/
-├── app/
-│   ├── layout.tsx          # Root layout — fonts, metadata
-│   ├── page.tsx            # Landing page (homepage)
-│   ├── globals.css         # Tailwind + global styles
-│   ├── about/
-│   │   └── page.tsx        # About page
-│   ├── rooms/
-│   │   └── page.tsx        # Villa listing page
-│   ├── gallery/
-│   │   └── page.tsx        # Photo gallery page
-│   └── contact/
-│       └── page.tsx        # Contact page
-│
-├── components/
-│   ├── layout/
-│   │   ├── Navbar.tsx      # Scroll-aware transparent → solid navbar
-│   │   └── Footer.tsx      # Links, contact info, social
-│   └── sections/
-│       ├── HeroSection.tsx       # Full-bleed hero with parallax
-│       ├── BookingWidget.tsx     # Check-in / check-out / guests widget
-│       ├── VillasSection.tsx     # 3-villa card grid
-│       ├── ExperienceSection.tsx # Amenities 6-grid (dark bg)
-│       ├── GallerySection.tsx    # Mosaic photo grid preview
-│       ├── TestimonialsSection.tsx  # Guest reviews
-│       └── CTASection.tsx        # Newsletter signup
-│
-├── lib/                    # Utilities / helpers (add here)
-├── public/                 # Static assets
-├── tailwind.config.js      # Design tokens (colors, fonts, spacing)
-└── next.config.js
-```
+## 📌 Pages
 
----
-
-## Design Tokens
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `forest` | `#1A3329` | Primary brand green |
-| `forest-dark` | `#0D1F1A` | Darkest backgrounds |
-| `ivory` | `#F5EFE0` | Light backgrounds |
-| `gold` | `#C9A84C` | Accent, CTA highlights |
-| `terra` | `#D4846A` | Warm secondary accent |
-
-**Fonts:**
-- `font-display` → Playfair Display (headings, italic accents)
-- `font-body` → Inter (all body text)
-
----
-
-## Next Steps
-
-- [ ] Connect real booking/payment system (Stripe / Midtrans)
-- [ ] Add individual villa detail pages (`/rooms/[id]`)
-- [ ] Build full gallery with lightbox
-- [ ] Add CMS (Sanity / Contentful) for villa content
-- [ ] Integrate WhatsApp / email contact form
-- [ ] Add animations with Framer Motion
-- [ ] SEO: sitemap, structured data (schema.org)
-- [ ] Deploy to Vercel
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page |
+| `/rooms` | All villas |
+| `/rooms/forest-suite` | Forest Suite detail |
+| `/rooms/jungle-pool-villa` | Jungle Pool Villa detail |
+| `/rooms/highland-escape` | Highland Escape detail |
+| `/about` | About HeavenVilla |
+| `/gallery` | Photo gallery |
+| `/contact` | Contact form |
