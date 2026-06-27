@@ -6,7 +6,7 @@ import { Calendar, Users, Search } from 'lucide-react'
 export default function BookingWidget() {
   const [checkIn, setCheckIn] = useState('')
   const [checkOut, setCheckOut] = useState('')
-  const [guests, setGuests] = useState(2)
+  const [guests, setGuests] = useState(1)
 
   return (
     <section id="booking" className="relative z-20 -mt-8">

@@ -1,112 +1,97 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 
 export default function HeroSection() {
   const [loaded, setLoaded] = useState(false)
-  const parallaxRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 100)
-
-    const handleScroll = () => {
-      if (!parallaxRef.current) return
-      const scrolled = window.scrollY
-      parallaxRef.current.style.transform = `translateY(${scrolled * 0.4}px)`
-    }
-
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => {
-      clearTimeout(t)
-      window.removeEventListener('scroll', handleScroll)
-    }
+    setLoaded(true)
   }, [])
 
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative h-screen min-h-[600px] overflow-hidden">
       {/* Background */}
-      <div ref={parallaxRef} className="absolute inset-0 scale-110">
+      <div className="absolute inset-0">
         <img
           src="/images/hero-bg.jpg"
-          alt="HeavenVilla — Luxury Villa in Nature"
-          className="w-full h-full object-cover object-top"
+          alt="HeavenVilla"
+          className="w-full h-full object-cover"
+          onLoad={() => setLoaded(true)}
         />
-        {/* Base dark tint */}
         <div className="absolute inset-0 bg-forest-dark/50" />
-        {/* Vignette: radial + gradient bottom */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(ellipse at center, transparent 30%, rgba(5,15,10,0.55) 100%), linear-gradient(to bottom, rgba(8,20,15,0.35) 0%, transparent 35%, transparent 55%, rgba(5,15,10,0.78) 100%)',
-          }}
-        />
-      </div>
-
-      {/* Decorative vertical lines */}
-      <div className="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-4">
-        <div className="w-px h-24 bg-gold/40" />
-        <span className="text-gold/60 text-xs tracking-[0.3em] rotate-90 whitespace-nowrap">UBUD · BALI</span>
-        <div className="w-px h-24 bg-gold/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(13,31,26,0.6)_100%)]" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
-        <p
-          className={`text-gold tracking-[0.4em] uppercase text-xs md:text-sm font-medium mb-6 transition-all duration-1000 ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}
-          style={{ transitionDelay: '200ms' }}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-gold tracking-[0.4em] uppercase text-xs font-medium mb-6"
         >
-          Welcome to Heaven
-        </p>
+          Welcome to HeavenVilla
+        </motion.p>
 
-        <h1
-          className={`font-display text-display-xl text-ivory mb-6 transition-all duration-1000 ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionDelay: '400ms' }}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 30 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="font-display text-display-xl text-ivory max-w-4xl mb-6"
         >
-          Where Stillness
+          Where Nature Becomes
           <br />
-          <span className="text-gradient-gold italic">Becomes a Luxury</span>
-        </h1>
+          <em className="text-gold">entirely yours.</em>
+        </motion.h1>
 
-        <p
-          className={`text-ivory/70 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10 transition-all duration-1000 ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionDelay: '600ms' }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="text-ivory/70 text-sm md:text-base max-w-md mb-10 leading-relaxed"
         >
-          Private villas cradled in Ubud's lush jungle. An escape from the world — entirely yours.
-        </p>
+          Private villas nestled in the heart of Indonesian nature. No crowds, no noise — just you and the wild.
+        </motion.p>
 
-        <div
-          className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 ${
-            loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-          style={{ transitionDelay: '800ms' }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: loaded ? 1 : 0, y: loaded ? 0 : 20 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex flex-col sm:flex-row gap-4"
         >
-          <a
-            href="#villas"
-            className="px-8 py-4 bg-gold text-forest-dark font-medium text-sm tracking-widest uppercase hover:bg-gold-light transition-colors duration-300"
+          <Link
+            href="/rooms"
+            className="px-8 py-4 bg-gold text-forest-dark font-medium text-sm tracking-widest uppercase hover:bg-gold-light transition-all duration-300"
           >
             Explore Villas
-          </a>
-          <a
+          </Link>
+          <Link
             href="#booking"
-            className="px-8 py-4 border border-ivory/50 text-ivory font-medium text-sm tracking-widest uppercase hover:border-gold hover:text-gold transition-all duration-300"
+            className="px-8 py-4 border border-ivory text-ivory font-medium text-sm tracking-widest uppercase hover:bg-ivory hover:text-forest-dark transition-all duration-300"
           >
             Reserve Now
-          </a>
-        </div>
-      </div>
+          </Link>
+        </motion.div>
 
-      {/* Scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float">
-        <span className="text-ivory/40 text-xs tracking-widest uppercase">Scroll</span>
-        <ChevronDown size={16} className="text-gold/60" />
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: loaded ? 1 : 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="absolute bottom-10 flex flex-col items-center gap-2"
+        >
+          <span className="text-ivory/40 text-xs tracking-[0.3em] uppercase">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 1.5 }}
+          >
+            <ChevronDown size={16} className="text-ivory/40" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )
