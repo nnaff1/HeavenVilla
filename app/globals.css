@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-playfair: 'Playfair Display', Georgia, serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-forest-dark bg-ivory;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  ::selection {
+    background-color: theme('colors.gold.DEFAULT');
+    color: theme('colors.forest.dark');
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-playfair);
+  }
+
+  .font-body {
+    font-family: var(--font-inter);
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Text gradient utility */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #C9A84C, #DFC070, #A88930);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section padding */
+  .section-pad {
+    @apply py-section px-6 md:px-12 lg:px-20;
+  }
+
+  .section-pad-sm {
+    @apply py-section-sm px-6 md:px-12 lg:px-20;
+  }
+}
