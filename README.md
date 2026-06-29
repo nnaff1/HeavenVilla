@@ -1,6 +1,8 @@
 # 🏡 HeavenVilla
 
-A luxury villa rental website built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**. Designed to showcase private villas nestled in Indonesian nature with a clean, elegant aesthetic.
+A luxury villa rental website built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**.
+
+🌐 **Live Demo:** [heaven-villa.vercel.app](https://heaven-villa.vercel.app)
 
 ## ✨ Features
 
@@ -29,38 +31,62 @@ A luxury villa rental website built with **Next.js 14**, **TypeScript**, and **T
 
 ## 🗂️ Project Structure
 
+heavenvilla/
 
+├── app/
 
-## 🚀 Getting Started
+│   ├── page.tsx              ← Landing page
 
-```bash
-# Install dependencies
-npm install
+│   ├── layout.tsx            ← Root layout
 
-# Run development server
-npm run dev
-```
+│   ├── not-found.tsx         ← 404 page
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+│   ├── about/page.tsx
 
-## 🛠️ Tech Stack
+│   ├── contact/page.tsx
 
-- [Next.js 14](https://nextjs.org/) — React framework
-- [TypeScript](https://www.typescriptlang.org/) — Type safety
-- [Tailwind CSS](https://tailwindcss.com/) — Styling
-- [Framer Motion](https://www.framer.com/motion/) — Animations
-- [Lucide React](https://lucide.dev/) — Icons
-- [Unsplash](https://unsplash.com/) — Placeholder images
+│   ├── gallery/page.tsx
 
-## 📌 Pages
+│   └── rooms/
 
-| Route | Description |
-|-------|-------------|
-| `/` | Landing page |
-| `/rooms` | All villas |
-| `/rooms/forest-suite` | Forest Suite detail |
-| `/rooms/jungle-pool-villa` | Jungle Pool Villa detail |
-| `/rooms/highland-escape` | Highland Escape detail |
-| `/about` | About HeavenVilla |
-| `/gallery` | Photo gallery |
-| `/contact` | Contact form |
+│       ├── page.tsx          ← Villa list
+
+│       └── [id]/page.tsx     ← Villa detail
+
+├── components/
+
+│   ├── booking/
+
+│   │   └── BookingForm.tsx
+
+│   ├── layout/
+
+│   │   ├── Navbar.tsx
+
+│   │   └── Footer.tsx
+
+│   ├── sections/
+
+│   │   ├── HeroSection.tsx
+
+│   │   ├── BookingWidget.tsx
+
+│   │   ├── VillasSection.tsx
+
+│   │   ├── ExperienceSection.tsx
+
+│   │   ├── GallerySection.tsx
+
+│   │   ├── TestimonialsSection.tsx
+
+│   │   └── CTASection.tsx
+
+│   └── ui/
+
+│       ├── ScrollReveal.tsx
+
+│       └── WhatsAppButton.tsx
+
+└── lib/
+
+└── villas.ts             ← Villa data & types
